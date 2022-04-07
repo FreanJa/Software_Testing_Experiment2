@@ -8,7 +8,7 @@ import java.util.*;
 
 public class ExcelListener extends AnalysisEventListener<TestParam> {
 
-    private List<TestParam> paramSet = new ArrayList<>();
+    private final List<TestParam> paramSet;
     public ExcelListener(List<TestParam> paramSet) {
         this.paramSet = paramSet;
     }

@@ -1,4 +1,5 @@
 import model.TestParam;
+import org.apache.commons.collections4.functors.FalsePredicate;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,13 +18,12 @@ public class EXP2Test {
     private final String target;
     private final String expect;
 
-    @Parameterized.Parameters(name = "{index}.CASE:[{2}]TARGET:{0}EXPECT:{1}")
+    @Parameterized.Parameters(name = "{index}.\tCASE:[{2}]\tTARGET:{0}\tEXPECT:{1}")
     public static Collection<Object[]> setParam() {
         Collection<Object[]> paramSet = new ArrayList<Object[]>();
         List<TestParam> testParams = Utils.readExcel();
         for (TestParam testParam: testParams) {
             paramSet.add(new Object[] {EXP2.nextDate(testParam.getYear(), testParam.getMonth(), testParam.getDay()), testParam.getExpectOutput(), testParam.getState()});
-
         }
         return paramSet;
     }
@@ -33,16 +33,11 @@ public class EXP2Test {
         this.expect = except;
     }
 
-    @Before
-    public void setUp() throws Exception {
-    }
-
-    @After
-    public void tearDown() throws Exception {
-    }
-
     @Test
     public void nextDate() {
         assertEquals(target, expect);
     }
+
 }
+
+

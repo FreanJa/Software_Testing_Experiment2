@@ -9,4 +9,11 @@ public class UtilsTest {
         Utils utils = new Utils();
         utils.readExcel();
     }
+
+    @Test
+    public void testAssert() {
+        Boolean flag = Boolean.FALSE;
+//        assertTrue("run", flag);
+        fail("fail_run");
+    }
 }
